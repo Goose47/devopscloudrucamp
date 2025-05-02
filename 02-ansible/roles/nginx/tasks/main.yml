@@ -1,0 +1,21 @@
+- name: Create Nginx config directory
+  file:
+    path: /opt/nginx
+    state: directory
+
+- name: Copy nginx config
+  template:
+    src: nginx.conf
+    dest: /opt/nginx/nginx.conf
+
+- name: Run nginx container
+  docker_container:
+    name: nginx
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - /opt/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    restart_policy: unless-stopped
+    networks:
+      - name: echo-server-network

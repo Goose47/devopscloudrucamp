@@ -1,0 +1,2 @@
+docker_user: your_dockerhub_username
+docker_pass: your_dockerhub_password
