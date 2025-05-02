@@ -4,11 +4,16 @@
     username: "{{ docker_user }}"
     password: "{{ docker_pass }}"
 
+- name: Create Docker network
+  docker_network:
+    name: echo-server-network
+
 - name: Run containers
   docker_container:
     name: "echo-server-{{ item }}"
     image: tyumin000/devopscloudrucamp:echo-server-latest
     restart_policy: unless-stopped
+    container_default_behavior: no_defaults
     env:
       AUTHOR: "Nikita"
     networks:
