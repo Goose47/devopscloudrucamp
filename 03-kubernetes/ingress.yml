@@ -6,6 +6,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
     - host: echo.local
       http:
@@ -14,6 +15,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: echo-server
+                name: echo-server-service
                 port:
                   number: 80
