@@ -35,4 +35,6 @@ spec:
             initialDelaySeconds: 2
             periodSeconds: 5
       imagePullSecrets:
-        - name: "{{ .Values.imagePullSecrets.name }}"
+        {{- range .Values.imagePullSecrets }}
+        - name: {{ .name }}
+        {{- end }}
