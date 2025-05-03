@@ -15,5 +15,5 @@ deploy:
     kubectl apply -f docker-registry-secret.yml && \
     kubectl apply -f deployment.yml && \
     kubectl apply -f service.yml && \
-    kubectl apply -f ingress.yml && \
-    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.5/deploy/static/provider/cloud/deploy.yaml
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.2/deploy/static/provider/cloud/deploy.yaml && \
+    kubectl apply -f ingress.yml
