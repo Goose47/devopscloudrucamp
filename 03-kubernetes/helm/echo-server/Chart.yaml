@@ -1,0 +1,4 @@
+apiVersion: v2
+name: echo-server
+description: A Helm chart for deploying echo-server
+version: 0.1.0

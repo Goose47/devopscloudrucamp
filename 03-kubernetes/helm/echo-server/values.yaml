@@ -1,0 +1,32 @@
+replicaCount: 3
+
+image:
+  repository: tyumin000/devopscloudrucamp
+  tag: echo-server-latest
+  pullPolicy: Always
+
+service:
+  name: echo-server-service
+  port: 80
+  targetPort: 8000
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: echo.local
+      paths:
+        - /
+
+env:
+  AUTHOR: "Nikita"
+
+dockerRegistry:
+  server: https://index.docker.io/v1/
+  username: registry-login
+  password: registry-pass
+  email: your-email
+
+imagePullSecrets:
+  - name: docker-registry-credentials
